@@ -106,11 +106,17 @@
       modal.classList.remove('active');
     });
 
-    function calcularUrbanismoTRBD(m2) {
+   function calcularUrbanismoTRBD(m2) {
       m2 = parseFloat(m2);
       if (isNaN(m2) || m2 <= 0) {
         document.getElementById("resultado-trbd").innerHTML =
           "<p>Ingrese una superficie válida.</p>";
+        return;
+      }
+        
+      if(isNaN(m2) || m2 <= 600) {
+          document.getElementById("resultado-trbd").innerHTML =
+          "<p>No requiere PVEA</p>";
         return;
       }
       const FOS = 0.9;
